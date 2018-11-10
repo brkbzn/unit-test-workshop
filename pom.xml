@@ -8,6 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>00-hello-world</module>
+        <module>01-runners-and-suites</module>
     </modules>
     <packaging>pom</packaging>
 

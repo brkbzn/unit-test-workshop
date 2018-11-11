@@ -5,6 +5,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -31,6 +33,7 @@ import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
+@RunWith(JUnit4.class)
 public class TaxCalculatorTest {
 
     private static DatabaseConnection DATABASE_CONNECTION;
@@ -103,7 +106,6 @@ public class TaxCalculatorTest {
         assertThat(actual, comparesEqualTo(BigDecimal.valueOf(18.000)));
         assertThat(actual, lessThan(BigDecimal.valueOf(20)));
     }
-
 
 
 }

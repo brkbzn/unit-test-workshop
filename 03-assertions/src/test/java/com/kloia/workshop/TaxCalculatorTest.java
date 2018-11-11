@@ -93,6 +93,13 @@ public class TaxCalculatorTest {
 
     @Test
     public void test6() throws Exception {
+        BigDecimal actual = taxCalculator.calculate(BigDecimal.valueOf(10), true);
+
+        assertEquals(actual, BigDecimal.valueOf(0.80));
+    }
+
+    @Test
+    public void test7() throws Exception {
         BigDecimal actual = taxCalculator.calculate(null, false);
 
         assertNull(actual);

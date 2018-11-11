@@ -4,17 +4,23 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+import org.junit.runners.MethodSorters;
 
 import java.math.BigDecimal;
 
 /*
  TODO write unit tests for tax calculator with different inputs
  Before initializing the tax calculator make sure that the DatabaseConnection is established.
+ You may try to run your test in specified order
+ Also you can try timeout of your test. Ignorance of a test would be an option though.
 */
 @RunWith(JUnit4.class)
+@FixMethodOrder(value = MethodSorters.NAME_ASCENDING)
 public class TaxCalculatorTest {
 
     private static DatabaseConnection DATABASE_CONNECTION;
@@ -58,6 +64,14 @@ public class TaxCalculatorTest {
         BigDecimal actual = taxCalculator.calculateTax(null);
 
         System.out.println(actual);
+    }
+
+    @Test(timeout = 3)
+    @Ignore
+    public void test3() throws Exception {
+        for (int i = 0; i < 100_000; i++) {
+            taxCalculator.calculateTax(BigDecimal.valueOf(-100));
+        }
     }
 
 }

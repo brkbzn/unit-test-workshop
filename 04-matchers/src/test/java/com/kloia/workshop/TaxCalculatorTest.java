@@ -4,13 +4,19 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ErrorCollector;
+import org.junit.rules.Stopwatch;
+import org.junit.rules.TemporaryFolder;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import java.io.File;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Callable;
 
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.anyOf;
@@ -38,6 +44,15 @@ public class TaxCalculatorTest {
 
     private static DatabaseConnection DATABASE_CONNECTION;
     private TaxCalculator taxCalculator;
+
+    @Rule
+    public ErrorCollector errorCollector = new ErrorCollector();
+
+    @Rule
+    public Stopwatch stopwatch;
+
+    @Rule
+    public TemporaryFolder temporaryFolder = new TemporaryFolder();
 
     @BeforeClass
     public static void beforeClass() throws Exception {
@@ -108,4 +123,9 @@ public class TaxCalculatorTest {
     }
 
 
+    @Test
+    public void shouldTest1() throws Exception {
+        File asasas = temporaryFolder.newFile("asasas");
+        temporaryFolder.create();
+    }
 }

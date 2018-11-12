@@ -1,22 +1,13 @@
 package com.kloia.workshop;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ErrorCollector;
-import org.junit.rules.Stopwatch;
-import org.junit.rules.TemporaryFolder;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import java.io.File;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.Callable;
 
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.anyOf;
@@ -39,45 +30,36 @@ import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
+/*
+    TODO write unit tests for TestCalculator methods
+    Example assertions for "List<String> getAvailableTaxes()"
+        - List contains elements in any order
+        - List contains elements in specified order
+        - List contains one or more elements
+        - Size of list
+        - Checking all the list items are non-null
+        - Checking all the list items are instance of String
+
+    Example assertions for "Map<String, Boolean> getAvailableTaxes()"
+        - Return value is an instance of Map
+        - There is an entry with key "MTV"
+        - There is an entry "[KDV, true]"
+        - There is at least one entry having "true" value
+        - All the entries has non-null values
+
+    Example assertions for "BigDecimal getTaxRate()"
+        - Checking the value equals to 18(or 18.000) without specifying the scale
+        - Checking the value is lessThan 20
+
+ */
 @RunWith(JUnit4.class)
 public class TaxCalculatorTest {
 
-    private static DatabaseConnection DATABASE_CONNECTION;
     private TaxCalculator taxCalculator;
-
-    @Rule
-    public ErrorCollector errorCollector = new ErrorCollector();
-
-    @Rule
-    public Stopwatch stopwatch;
-
-    @Rule
-    public TemporaryFolder temporaryFolder = new TemporaryFolder();
-
-    @BeforeClass
-    public static void beforeClass() throws Exception {
-        DATABASE_CONNECTION = new DatabaseConnection();
-        DATABASE_CONNECTION.open();
-
-        System.out.println("db connection opened");
-
-    }
-
-    @AfterClass
-    public static void afterClass() throws Exception {
-        DATABASE_CONNECTION.close();
-
-        System.out.println("db connection closed");
-    }
 
     @Before
     public void setUp() throws Exception {
-        taxCalculator = new TaxCalculator(DATABASE_CONNECTION);
-    }
-
-    @After
-    public void tearDown() throws Exception {
-        taxCalculator = null;
+        taxCalculator = new TaxCalculator();
     }
 
     @Test
@@ -123,9 +105,4 @@ public class TaxCalculatorTest {
     }
 
 
-    @Test
-    public void shouldTest1() throws Exception {
-        File asasas = temporaryFolder.newFile("asasas");
-        temporaryFolder.create();
-    }
 }

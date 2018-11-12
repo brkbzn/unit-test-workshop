@@ -1,5 +1,7 @@
 package com.kloia.workshop;
 
+import java.io.IOException;
+
 public class DatabaseConnection {
 
     private boolean open = false;
@@ -23,5 +25,16 @@ public class DatabaseConnection {
         return !open;
     }
 
+    public void beginTransaction() throws IOException {
+        if (!open) {
+            throw new IOException("Connection is not opened");
+        }
+    }
+
+    public void endTransaction() throws IOException {
+        if (!open) {
+            throw new IOException("Connection is not opened");
+        }
+    }
 
 }

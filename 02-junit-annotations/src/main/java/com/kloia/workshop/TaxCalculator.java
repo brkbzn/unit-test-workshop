@@ -14,15 +14,17 @@ public class TaxCalculator {
     }
 
     public BigDecimal calculateTax(BigDecimal amount) throws Exception {
-        if (databaseConnection.isClosed()) {
-            throw new Exception("Database connection is not opened yet");
-        }
+        databaseConnection.beginTransaction();
 
         if (amount == null) {
             return null;
         }
 
-        return amount.multiply(TaxCalculator.DEFAULT_RATE).divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_UP);
+        BigDecimal tax = amount.multiply(TaxCalculator.DEFAULT_RATE).divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_UP);
+
+        databaseConnection.endTransaction();
+
+        return tax;
     }
 
 }

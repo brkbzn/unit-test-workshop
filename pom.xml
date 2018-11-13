@@ -15,6 +15,7 @@
         <module>05-exceptions-and-rules</module>
         <module>06-mockito</module>
         <module>07-powermockito</module>
+        <module>08-argument-captors</module>
     </modules>
     <packaging>pom</packaging>
 

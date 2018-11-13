@@ -17,10 +17,24 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 
 /*
- TODO write unit tests for tax calculator methods
- This time, you should assert the equalities of the return values of all methods.
- When checking equalities, you should try to check both instance and value equalities.
- java.lang.String is a good class to do that.
+    TODO write unit tests for tax calculator methods
+    This time, you should assert the equalities of the return values of all methods.
+
+    Example test cases for "BigDecimal getTaxRate()"
+        - Returned value equals to 18
+        - Returned object is not equal to (same object reference) BigDecimal.valueOf(18)
+
+    Example test cases for "String getDefaultTaxType()"
+        - Returned value equals to default tax
+        - Returned object is equal to (same object reference) "KDV"
+
+    Example test cases for "List<String> getAvailableTaxes()"
+        - Returned list's values equal to list of tax arrays
+        - But not object reference equality
+
+    Example test cases for "BigDecimal calculate()"
+        - Returned value is null when amount is null
+        - Checking values and object references of BigDecimal values
 */
 @RunWith(JUnit4.class)
 public class TaxCalculatorTest {

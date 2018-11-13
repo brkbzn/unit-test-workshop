@@ -26,7 +26,7 @@ public class TaxCalculator {
     }
 
 
-    public BigDecimal calculate(BigDecimal amount, boolean hasDiscount) throws Exception {
+    public BigDecimal calculate(BigDecimal amount, boolean hasDiscount) {
         if (amount == null) {
             return null;
         }

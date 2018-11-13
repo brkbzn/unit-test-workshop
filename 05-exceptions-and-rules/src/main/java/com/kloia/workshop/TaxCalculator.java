@@ -8,7 +8,7 @@ public class TaxCalculator {
     private static final BigDecimal DEFAULT_TAX_RATE = BigDecimal.valueOf(18);
 
 
-    public BigDecimal calculate(BigDecimal amount) throws Exception {
+    public BigDecimal calculate(BigDecimal amount) {
         if (amount == null) {
             throw new IllegalArgumentException("Amount cannot be null");
         }

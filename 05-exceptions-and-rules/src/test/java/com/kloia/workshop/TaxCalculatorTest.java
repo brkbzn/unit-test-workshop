@@ -6,8 +6,11 @@ import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import java.io.IOException;
 import java.math.BigDecimal;
+
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.instanceOf;
+import static org.junit.Assert.assertThat;
 
 /*
   TODO write the unit tests for TaxCalculator.calculate()
@@ -33,10 +36,23 @@ public class TaxCalculatorTest {
     }
 
 
-    @Test(expected = IOException.class)
-    public void shouldCalculateWithoutDbConnection() throws Exception {
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldTest2() throws Exception {
         taxCalculator = new TaxCalculator();
 
-        taxCalculator.calculate(BigDecimal.valueOf(100));
+        taxCalculator.calculate(BigDecimal.valueOf(-20));
     }
+
+    @Test
+    public void shouldTest3() throws Exception {
+        taxCalculator = new TaxCalculator();
+
+        try {
+            taxCalculator.calculate(BigDecimal.valueOf(-20));
+        } catch (Exception e) {
+            assertThat(e, instanceOf(IllegalArgumentException.class));
+            assertThat(e.getMessage(), equalTo("Amount cannot be negative"));
+        }
+    }
+
 }

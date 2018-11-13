@@ -4,11 +4,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.math.BigDecimal;
 
-import static org.hamcrest.Matchers.comparesEqualTo;
+import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.doThrow;
@@ -27,7 +29,8 @@ import static org.mockito.Mockito.when;
         - taxAmountValidator throws exception.
 
  */
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(PowerMockRunner.class)
+@PrepareForTest({NumberUtils.class})
 public class TaxCalculatorTest {
 
     @InjectMocks
@@ -41,19 +44,25 @@ public class TaxCalculatorTest {
 
     @Test
     public void shouldCalculate() throws Exception {
+        PowerMockito.mockStatic(NumberUtils.class);
+
         BigDecimal amount = BigDecimal.valueOf(20);
 
         when(taxRateRepository.getDefaultTaxRate()).thenReturn(BigDecimal.valueOf(18));
+        PowerMockito.when(NumberUtils.scale(BigDecimal.valueOf(3.6))).thenReturn(BigDecimal.valueOf(3.60));
 
         BigDecimal actual = taxCalculator.calculate(amount);
 
         verify(taxAmountValidator).validate(amount);
+        PowerMockito.verifyStatic();
 
-        assertThat(actual, comparesEqualTo(BigDecimal.valueOf(3.6)));
+        assertThat(actual, equalTo(BigDecimal.valueOf(3.60)));
     }
 
     @Test
     public void shouldNotCalculateWhenValidatorThrowsException() throws Exception {
+        PowerMockito.mockStatic(NumberUtils.class);
+
         BigDecimal amount = BigDecimal.valueOf(20);
 
         doThrow(TaxAmountException.class).when(taxAmountValidator).validate(amount);
@@ -68,5 +77,7 @@ public class TaxCalculatorTest {
         verifyZeroInteractions(taxRateRepository);
         verify(taxRateRepository, never()).getDefaultTaxRate();
         verify(taxRateRepository, times(0)).getDefaultTaxRate();
+
+        PowerMockito.verifyStatic(never());
     }
 }

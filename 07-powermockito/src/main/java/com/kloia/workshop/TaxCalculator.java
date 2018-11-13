@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 @Service
 public class TaxCalculator {
@@ -25,11 +24,7 @@ public class TaxCalculator {
 
         BigDecimal tax = amount.multiply(defaultTaxRate).divide(BigDecimal.valueOf(100));
 
-        return scale(tax);
-    }
-
-    private BigDecimal scale(BigDecimal value) {
-        return value.setScale(2, RoundingMode.HALF_UP);
+        return NumberUtils.scale(tax);
     }
 
 }

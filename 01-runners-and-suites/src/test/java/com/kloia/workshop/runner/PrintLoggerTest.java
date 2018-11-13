@@ -1,10 +1,13 @@
 package com.kloia.workshop.runner;
 
-public class PrintLoggerTest {
-
-    // TODO write the unit tests for each method of PrintLogger that run with CustomRunner
+import com.kloia.workshop.PrintLogger;
+import org.junit.Test;
 
 /*
+    TODO write the unit tests for each method of PrintLogger that run with PrintLoggerCustomRunner
+*/
+public class PrintLoggerTest {
+
     @Test
     public void printMessage() throws Exception {
         String message = "Hello World 1";
@@ -18,6 +21,5 @@ public class PrintLoggerTest {
         PrintLogger printLogger = new PrintLogger(message);
         printLogger.printMessageWithError();
     }
-*/
 
 }

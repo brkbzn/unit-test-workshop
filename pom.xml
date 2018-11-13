@@ -13,6 +13,7 @@
         <module>03-assertions</module>
         <module>04-matchers</module>
         <module>05-exceptions-and-rules</module>
+        <module>06-mockito</module>
     </modules>
     <packaging>pom</packaging>
 

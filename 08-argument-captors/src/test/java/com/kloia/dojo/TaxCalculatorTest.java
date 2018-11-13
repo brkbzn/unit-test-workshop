@@ -18,6 +18,10 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+/*
+    TODO write unit test for TaxCalculator.calculate()
+    Here try to capture all the arguments passed into printLogger
+ */
 @RunWith(MockitoJUnitRunner.class)
 public class TaxCalculatorTest {
 

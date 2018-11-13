@@ -10,16 +10,14 @@ public class PrintLoggerTest {
 
     @Test
     public void printMessage() throws Exception {
-        String message = "Hello World 1";
-        PrintLogger printLogger = new PrintLogger(message);
-        printLogger.printMessage();
+        PrintLogger printLogger = new PrintLogger();
+        printLogger.log("Hello World 1");
     }
 
     @Test
     public void printMessageWithError() throws Exception {
-        String message = "Hello World 2";
-        PrintLogger printLogger = new PrintLogger(message);
-        printLogger.printMessageWithError();
+        PrintLogger printLogger = new PrintLogger();
+        printLogger.logThrowingError("Hello World 2");
     }
 
 }

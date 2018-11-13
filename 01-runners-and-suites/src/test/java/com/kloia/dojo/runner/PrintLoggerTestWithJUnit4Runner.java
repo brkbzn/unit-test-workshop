@@ -11,12 +11,10 @@ import org.junit.runners.JUnit4;
 @RunWith(JUnit4.class)
 public class PrintLoggerTestWithJUnit4Runner {
 
-
     @Test
     public void printMessage() throws Exception {
-        String message = "Hello World 1";
-        PrintLogger printLogger = new PrintLogger(message);
-        printLogger.printMessage();
+        PrintLogger printLogger = new PrintLogger();
+        printLogger.log("Hello World 1");
     }
 
 }

@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.kloia.workshop</groupId>
-    <artifactId>unit-test-workshop-parent</artifactId>
+    <groupId>com.kloia.dojo</groupId>
+    <artifactId>unit-test-dojo-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>00-hello-world</module>
@@ -19,8 +19,8 @@
     </modules>
     <packaging>pom</packaging>
 
-    <name>unit-test-workshop</name>
-    <description>kloia Unit Test Workshop Parent</description>
+    <name>unit-test-dojo</name>
+    <description>kloia Unit Test Dojo Parent</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

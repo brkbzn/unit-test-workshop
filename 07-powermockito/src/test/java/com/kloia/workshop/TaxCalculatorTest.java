@@ -21,7 +21,7 @@ import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 
 /*
-    TODO write unit tests for taxCalculator.calculate() by mocking the taxAmountValidator and taxRateRepository
+    TODO write unit tests for taxCalculator.calculate() by mocking the taxAmountValidator, taxRateRepository, as well as mocking static NumberUtils.scale() method
     After invoking the method, don't forget to the assertions as well as verifications.
 
     Example test cases:

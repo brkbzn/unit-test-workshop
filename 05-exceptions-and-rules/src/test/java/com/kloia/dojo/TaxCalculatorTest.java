@@ -27,7 +27,7 @@ public class TaxCalculatorTest {
 
     @Test
     public void shouldTest1() throws Exception {
-        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expect(TaxAmountException.class);
         expectedException.expectMessage("Amount cannot be null");
 
         taxCalculator = new TaxCalculator();
@@ -36,7 +36,7 @@ public class TaxCalculatorTest {
     }
 
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = TaxAmountException.class)
     public void shouldTest2() throws Exception {
         taxCalculator = new TaxCalculator();
 
@@ -50,7 +50,7 @@ public class TaxCalculatorTest {
         try {
             taxCalculator.calculate(BigDecimal.valueOf(-20));
         } catch (Exception e) {
-            assertThat(e, instanceOf(IllegalArgumentException.class));
+            assertThat(e, instanceOf(TaxAmountException.class));
             assertThat(e.getMessage(), equalTo("Amount cannot be negative"));
         }
     }

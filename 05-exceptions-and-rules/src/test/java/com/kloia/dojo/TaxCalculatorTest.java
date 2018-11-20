@@ -26,7 +26,7 @@ public class TaxCalculatorTest {
     public ExpectedException expectedException = ExpectedException.none();
 
     @Test
-    public void shouldTest1() throws Exception {
+    public void shouldThrowExceptionWhenAmountIsNull() throws Exception {
         expectedException.expect(TaxAmountException.class);
         expectedException.expectMessage("Amount cannot be null");
 
@@ -37,14 +37,14 @@ public class TaxCalculatorTest {
 
 
     @Test(expected = TaxAmountException.class)
-    public void shouldTest2() throws Exception {
+    public void shouldThrowExceptionWhenAmountIsNegative() throws Exception {
         taxCalculator = new TaxCalculator();
 
         taxCalculator.calculate(BigDecimal.valueOf(-20));
     }
 
     @Test
-    public void shouldTest3() throws Exception {
+    public void shouldThrowExceptionWhenAmountIsNegative2() throws Exception {
         taxCalculator = new TaxCalculator();
 
         try {

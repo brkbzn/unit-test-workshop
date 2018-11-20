@@ -1,5 +1,6 @@
 package com.kloia.dojo;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
@@ -56,4 +57,5 @@ public class TaxCalculatorTest {
         assertThat(printArgumentCaptor.getAllValues().get(0), equalTo("DefaultTaxRate is 18"));
         assertThat(printArgumentCaptor.getAllValues().get(1), equalTo("ScaledTax is 3.60"));
     }
+
 }

@@ -49,14 +49,14 @@ public class TaxCalculatorTest {
         BigDecimal amount = BigDecimal.valueOf(20);
 
         when(taxRateRepository.getDefaultTaxRate()).thenReturn(BigDecimal.valueOf(18));
-        PowerMockito.when(NumberUtils.scale(BigDecimal.valueOf(3.6))).thenReturn(BigDecimal.valueOf(3.60));
+        PowerMockito.when(NumberUtils.scale(BigDecimal.valueOf(3.6))).thenReturn(BigDecimal.valueOf(666));
 
         BigDecimal actual = taxCalculator.calculate(amount);
 
         verify(taxAmountValidator).validate(amount);
         PowerMockito.verifyStatic();
 
-        assertThat(actual, equalTo(BigDecimal.valueOf(3.60)));
+        assertThat(actual, equalTo(BigDecimal.valueOf(666)));
     }
 
     @Test

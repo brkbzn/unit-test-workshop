@@ -63,11 +63,11 @@ public class TaxCalculatorTest {
     }
 
     @Test
-    public void getAvailableTaxes() throws Exception {
+    public void shouldGetAvailableTaxes() throws Exception {
         List<String> actual = taxCalculator.getAvailableTaxes();
 
         assertThat(actual, containsInAnyOrder("KDV", "OTV", "MTV"));
-        assertThat(actual, contains("KDV", "MTV", "OTV"));
+        assertThat(actual, not(contains("KDV", "MTV", "OTV")));
         assertThat(actual, contains("KDV", "OTV", "MTV"));
         assertThat(actual, hasItems("KDV", "OTV"));
 
@@ -75,14 +75,16 @@ public class TaxCalculatorTest {
 
         assertThat(actual, hasSize(3));
 
+        assertThat(actual, isA(List.class));
+        assertThat(actual, instanceOf(List.class));
+
         assertThat(actual, everyItem(notNullValue(String.class)));
         assertThat(actual, everyItem(not(isEmptyOrNullString())));
-
-        assertThat(actual, allOf(instanceOf(String.class)));
+        assertThat(actual, everyItem(instanceOf(String.class)));
     }
 
     @Test
-    public void getTaxUsage() throws Exception {
+    public void shouldGetTaxUsage() throws Exception {
         Map<String, Boolean> actual = taxCalculator.getTaxUsage();
 
         assertThat(actual, hasEntry("KDV", true));
@@ -96,7 +98,7 @@ public class TaxCalculatorTest {
     }
 
     @Test
-    public void testBigDecimal() throws Exception {
+    public void shouldGetTaxRate() throws Exception {
         BigDecimal actual = taxCalculator.getTaxRate();
 
         assertThat(actual, closeTo(BigDecimal.valueOf(18), BigDecimal.valueOf(0)));

@@ -52,7 +52,7 @@ public class TaxCalculatorTest {
     }
 
     @Test
-    public void test1() throws Exception {
+    public void shouldGetTaxRate() throws Exception {
         BigDecimal actual = taxCalculator.getTaxRate();
 
         assertEquals(BigDecimal.valueOf(18), actual);
@@ -60,7 +60,7 @@ public class TaxCalculatorTest {
     }
 
     @Test
-    public void test2() throws Exception {
+    public void shouldGetDefaultTaxType() throws Exception {
         String actual = taxCalculator.getDefaultTaxType();
 
         assertEquals("KDV", actual);
@@ -68,7 +68,7 @@ public class TaxCalculatorTest {
     }
 
     @Test
-    public void test3() throws Exception {
+    public void shouldGetAvailableTaxes() throws Exception {
         List<String> actual = taxCalculator.getAvailableTaxes();
 
         List<String> expected = Arrays.asList("KDV", "OTV", "MTV");
@@ -78,14 +78,14 @@ public class TaxCalculatorTest {
     }
 
     @Test
-    public void test4() throws Exception {
+    public void shouldCalculate() throws Exception {
         BigDecimal actual = taxCalculator.calculate(BigDecimal.valueOf(100), false);
 
         assertEquals(BigDecimal.valueOf(18).setScale(2, RoundingMode.HALF_UP), actual);
     }
 
     @Test
-    public void test5() throws Exception {
+    public void shouldCalculateWithRounding() throws Exception {
         BigDecimal actual = taxCalculator.calculate(BigDecimal.valueOf(10), false);
 
         assertEquals(BigDecimal.valueOf(1.8).setScale(2, RoundingMode.HALF_UP), actual);
@@ -93,14 +93,14 @@ public class TaxCalculatorTest {
     }
 
     @Test
-    public void test6() throws Exception {
+    public void shouldCalculateWithDiscount() throws Exception {
         BigDecimal actual = taxCalculator.calculate(BigDecimal.valueOf(10), true);
 
         assertEquals(BigDecimal.valueOf(0.8).setScale(2, RoundingMode.HALF_UP), actual);
     }
 
     @Test
-    public void test7() throws Exception {
+    public void shouldCalculateNull() throws Exception {
         BigDecimal actual = taxCalculator.calculate(null, false);
 
         assertNull(actual);

@@ -42,10 +42,10 @@ public class TaxCalculatorTest {
     @Test
     public void shouldCalculate() throws Exception {
         BigDecimal amount = BigDecimal.valueOf(20);
-
         when(taxRateRepository.getDefaultTaxRate()).thenReturn(BigDecimal.valueOf(18));
 
         BigDecimal actual = taxCalculator.calculate(amount);
+
 
         verify(taxAmountValidator).validate(amount);
 

@@ -53,14 +53,14 @@ public class TaxCalculatorTest {
     }
 
     @Test
-    public void test1() throws Exception {
+    public void shouldCalculate() throws Exception {
         BigDecimal actual = taxCalculator.calculateTax(BigDecimal.valueOf(100));
 
         System.out.println(actual);
     }
 
     @Test
-    public void test2() throws Exception {
+    public void shouldCalculateNull() throws Exception {
         BigDecimal actual = taxCalculator.calculateTax(null);
 
         System.out.println(actual);
@@ -68,7 +68,7 @@ public class TaxCalculatorTest {
 
     @Test(timeout = 3)
     @Ignore
-    public void test3() throws Exception {
+    public void shouldCalculateWithTimeout() throws Exception {
         for (int i = 0; i < 100_000; i++) {
             taxCalculator.calculateTax(BigDecimal.valueOf(-100));
         }

@@ -9,13 +9,13 @@ import org.junit.Test;
 public class PrintLoggerTest {
 
     @Test
-    public void printMessage() throws Exception {
+    public void shouldLog() throws Exception {
         PrintLogger printLogger = new PrintLogger();
         printLogger.log("Hello World 1");
     }
 
     @Test
-    public void printMessageWithError() throws Exception {
+    public void shouldLogThrowingError() throws Exception {
         PrintLogger printLogger = new PrintLogger();
         printLogger.logThrowingError("Hello World 2");
     }

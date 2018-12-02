@@ -11,5 +11,22 @@
 
     <artifactId>06-mockito</artifactId>
 
+    <properties>
+        <!-- Flags -->
+        <skip.jacoco.check>false</skip.jacoco.check>
+        <skip.checkstyle.check>true</skip.checkstyle.check>
+        <skip.findbugs.check>true</skip.findbugs.check>
+
+        <!-- Rules -->
+        <rule.element.coverage>CLASS</rule.element.coverage>
+        <rule.branch.coverage>0.00</rule.branch.coverage>
+        <rule.line.coverage>0.00</rule.line.coverage>
+        <rule.instruction.coverage>0.00</rule.instruction.coverage>
+
+        <rule.class.maximum>2000000000</rule.class.maximum>
+
+        <rule.line.length>160</rule.line.length>
+
+    </properties>
 
 </project>

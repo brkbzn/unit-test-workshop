@@ -12,5 +12,18 @@
     <artifactId>00-hello-world</artifactId>
     <packaging>jar</packaging>
 
+    <properties>
+        <!-- Flags -->
+        <skip.jacoco.check>false</skip.jacoco.check>
+        <skip.checkstyle.check>true</skip.checkstyle.check>
+        <skip.findbugs.check>true</skip.findbugs.check>
+
+        <!-- Rules -->
+        <rule.element.coverage>CLASS</rule.element.coverage>
+        <rule.branch.coverage>0.70</rule.branch.coverage>
+        <rule.line.coverage>0.80</rule.line.coverage>
+        <rule.line.length>160</rule.line.length>
+
+    </properties>
 
 </project>

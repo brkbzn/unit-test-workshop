@@ -259,7 +259,8 @@
                     </dependency>
                 </dependencies>
                 <configuration>
-                    <configLocation>http://nexus.kloia.com/nexus/service/local/repositories/releases/content/com/kloia/workshop/checkstyle/1.0.1/checkstyle-1.0.1.xml</configLocation>
+                    <!--<configLocation>http://nexus.kloia.com/nexus/service/local/repositories/releases/content/com/kloia/workshop/checkstyle/1.0.1/checkstyle-1.0.1.xml</configLocation>-->
+                    <configLocation>checkstyle-1.0.0.xml</configLocation>
                     <encoding>${project.build.sourceEncoding}</encoding>
                     <failsOnError>true</failsOnError>
                     <failOnViolation>true</failOnViolation>
@@ -288,7 +289,8 @@
                 <configuration>
                     <effort>Max</effort>
                     <threshold>Low</threshold>
-                    <excludeFilterFile>http://nexus.kloia.com/nexus/service/local/repositories/releases/content/com/kloia/workshop/findbugs/1.0.0/findbugs-1.0.0.xml</excludeFilterFile>
+                    <!--<excludeFilterFile>http://nexus.kloia.com/nexus/service/local/repositories/releases/content/com/kloia/workshop/findbugs/1.0.0/findbugs-1.0.0.xml</excludeFilterFile>-->
+                    <excludeFilterFile>findbugs-1.0.0.xml</excludeFilterFile>
                     <xmlOutput>true</xmlOutput>
                     <skip>${skip.findbugs.check}</skip>
                 </configuration>

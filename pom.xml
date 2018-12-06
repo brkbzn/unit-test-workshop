@@ -2,59 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.kloia.dojo</groupId>
+        <artifactId>parent-pom</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
 
-    <groupId>com.kloia.dojo</groupId>
     <artifactId>unit-test-dojo-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>unit-test-dojo</name>
     <description>kloia Unit Test Dojo Parent</description>
-
-    <prerequisites>
-        <maven>3.0</maven>
-    </prerequisites>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-        <!-- Versions -->
-        <java.version>1.8</java.version>
-        <spring.version>2.1.0.RELEASE</spring.version>
-        <spring.cloud.version>Dalston.SR5</spring.cloud.version>
-        <mockito.version>1.10.19</mockito.version>
-        <powermock.version>1.7.0</powermock.version>
-        <checkstyle.version>7.5.1</checkstyle.version>
-        <findbugs.version>3.0.1</findbugs.version>
-
-
-        <!-- Flags -->
-        <jacoco.skip.check>true</jacoco.skip.check>
-        <checkstyle.skip.check>true</checkstyle.skip.check>
-        <checkstyle.fail.on.error>true</checkstyle.fail.on.error>
-        <checkstyle.fail.on.violation>true</checkstyle.fail.on.violation>
-        <findbugs.skip.check>true</findbugs.skip.check>
-        <findbugs.fail.on.error>true</findbugs.fail.on.error>
-
-        <!-- Rules -->
-        <rule.element.coverage>CLASS</rule.element.coverage>
-        <rule.branch.coverage>0.70</rule.branch.coverage>
-        <rule.line.coverage>0.80</rule.line.coverage>
-        <rule.line.length>160</rule.line.length>
-        <rule.class.maximum>0</rule.class.maximum>
-        <rule.instruction.coverage>0.80</rule.instruction.coverage>
-
-        <!-- Plugin Versions -->
-        <plugin.compiler.version>3.6.1</plugin.compiler.version>
-        <plugin.jacoco.version>0.7.9</plugin.jacoco.version>
-        <plugin.checkstyle.version>2.17</plugin.checkstyle.version>
-        <plugin.findbugs.version>3.0.3</plugin.findbugs.version>
-        <plugin.surefire.version>2.20</plugin.surefire.version>
-        <plugin.maven.deploy.version>2.8.2</plugin.maven.deploy.version>
-
-    </properties>
-
 
     <modules>
         <module>00-hello-world</module>
@@ -68,10 +27,56 @@
         <module>08-argument-captors</module>
     </modules>
 
+<!--
+
+    <prerequisites>
+        <maven>3.0</maven>
+    </prerequisites>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        &lt;!&ndash; Versions &ndash;&gt;
+        <java.version>1.8</java.version>
+        <spring.version>2.1.0.RELEASE</spring.version>
+        <spring.cloud.version>Dalston.SR5</spring.cloud.version>
+        <mockito.version>1.10.19</mockito.version>
+        <powermock.version>1.7.0</powermock.version>
+        <checkstyle.version>7.5.1</checkstyle.version>
+        <findbugs.version>3.0.1</findbugs.version>
+
+
+        &lt;!&ndash; Flags &ndash;&gt;
+        <jacoco.skip.check>true</jacoco.skip.check>
+        <checkstyle.skip.check>true</checkstyle.skip.check>
+        <checkstyle.fail.on.error>true</checkstyle.fail.on.error>
+        <checkstyle.fail.on.violation>true</checkstyle.fail.on.violation>
+        <findbugs.skip.check>true</findbugs.skip.check>
+        <findbugs.fail.on.error>true</findbugs.fail.on.error>
+
+        &lt;!&ndash; Rules &ndash;&gt;
+        <rule.element.coverage>CLASS</rule.element.coverage>
+        <rule.branch.coverage>0.70</rule.branch.coverage>
+        <rule.line.coverage>0.80</rule.line.coverage>
+        <rule.line.length>160</rule.line.length>
+        <rule.class.maximum>0</rule.class.maximum>
+        <rule.instruction.coverage>0.80</rule.instruction.coverage>
+
+        &lt;!&ndash; Plugin Versions &ndash;&gt;
+        <plugin.compiler.version>3.6.1</plugin.compiler.version>
+        <plugin.jacoco.version>0.7.9</plugin.jacoco.version>
+        <plugin.checkstyle.version>2.17</plugin.checkstyle.version>
+        <plugin.findbugs.version>3.0.3</plugin.findbugs.version>
+        <plugin.surefire.version>2.20</plugin.surefire.version>
+        <plugin.maven.deploy.version>2.8.2</plugin.maven.deploy.version>
+
+    </properties>
+
 
     <dependencyManagement>
         <dependencies>
-            <!-- Spring Boot Dependency Management -->
+            &lt;!&ndash; Spring Boot Dependency Management &ndash;&gt;
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -149,7 +154,7 @@
         </dependencies>
     </dependencyManagement>
 
-    <!--Common Dependencies For All The Projects-->
+    &lt;!&ndash;Common Dependencies For All The Projects&ndash;&gt;
     <dependencies>
 
         <dependency>
@@ -161,10 +166,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>org.springframework.boot</groupId>-->
-        <!--<artifactId>spring-boot-starter-data-jpa</artifactId>-->
-        <!--</dependency>-->
+        &lt;!&ndash;<dependency>&ndash;&gt;
+        &lt;!&ndash;<groupId>org.springframework.boot</groupId>&ndash;&gt;
+        &lt;!&ndash;<artifactId>spring-boot-starter-data-jpa</artifactId>&ndash;&gt;
+        &lt;!&ndash;</dependency>&ndash;&gt;
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-rest</artifactId>
@@ -232,7 +237,7 @@
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
-                    <!--<version>${spring.version}</version>-->
+                    &lt;!&ndash;<version>${spring.version}</version>&ndash;&gt;
                     <executions>
                         <execution>
                             <goals>
@@ -292,7 +297,7 @@
             </plugin>
 
 
-            <!-- Jacoco Plugin: Ensures minimum test coverage -->
+            &lt;!&ndash; Jacoco Plugin: Ensures minimum test coverage &ndash;&gt;
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -389,7 +394,7 @@
             </plugin>
 
 
-            <!-- Checkstyle: Ensures similar code structure -->
+            &lt;!&ndash; Checkstyle: Ensures similar code structure &ndash;&gt;
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
@@ -401,7 +406,7 @@
                     </dependency>
                 </dependencies>
                 <configuration>
-                    <!--<configLocation>http://nexus.kloia.com/nexus/service/local/repositories/releases/content/com/kloia/workshop/checkstyle/1.0.1/checkstyle-1.0.1.xml</configLocation>-->
+                    &lt;!&ndash;<configLocation>http://nexus.kloia.com/nexus/service/local/repositories/releases/content/com/kloia/workshop/checkstyle/1.0.1/checkstyle-1.0.1.xml</configLocation>&ndash;&gt;
                     <configLocation>checkstyle-1.0.0.xml</configLocation>
                     <encoding>${project.build.sourceEncoding}</encoding>
                     <failsOnError>${checkstyle.fail.on.error}</failsOnError>
@@ -412,7 +417,7 @@
                     <consoleOutput>true</consoleOutput>
                     <skip>${checkstyle.skip.check}</skip>
                     <propertyExpansion>lineLength=${rule.line.length}</propertyExpansion>
-                    <!--<sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>-->
+                    &lt;!&ndash;<sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>&ndash;&gt;
                 </configuration>
                 <executions>
                     <execution>
@@ -424,15 +429,15 @@
                 </executions>
             </plugin>
 
-            <!-- Findbugs: Ensures well-know bugs never appear -->
+            &lt;!&ndash; Findbugs: Ensures well-know bugs never appear &ndash;&gt;
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
                 <configuration>
                     <effort>Max</effort>
                     <threshold>Low</threshold>
-                    <!--<excludeFilterFile>http://nexus.kloia.com/nexus/service/local/repositories/releases/content/com/kloia/workshop/findbugs/1.0.0/findbugs-1.0.0.xml</excludeFilterFile>-->
-                    <!--<excludeFilterFile>findbugs-1.0.0.xml</excludeFilterFile>-->
+                    &lt;!&ndash;<excludeFilterFile>http://nexus.kloia.com/nexus/service/local/repositories/releases/content/com/kloia/workshop/findbugs/1.0.0/findbugs-1.0.0.xml</excludeFilterFile>&ndash;&gt;
+                    &lt;!&ndash;<excludeFilterFile>findbugs-1.0.0.xml</excludeFilterFile>&ndash;&gt;
                     <xmlOutput>true</xmlOutput>
                     <skip>${findbugs.skip.check}</skip>
                     <failOnError>${findbugs.fail.on.error}</failOnError>
@@ -468,5 +473,6 @@
         </plugins>
     </build>
 
+-->
 
 </project>

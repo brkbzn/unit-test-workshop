@@ -13,9 +13,12 @@
 
     <properties>
         <!-- Flags -->
-        <skip.jacoco.check>false</skip.jacoco.check>
-        <skip.checkstyle.check>true</skip.checkstyle.check>
-        <skip.findbugs.check>true</skip.findbugs.check>
+        <jacoco.skip.check>false</jacoco.skip.check>
+        <checkstyle.skip.check>false</checkstyle.skip.check>
+        <checkstyle.fail.on.error>false</checkstyle.fail.on.error>
+        <checkstyle.fail.on.violation>false</checkstyle.fail.on.violation>
+        <findbugs.skip.check>false</findbugs.skip.check>
+        <findbugs.fail.on.error>false</findbugs.fail.on.error>
 
         <!-- Rules -->
         <rule.element.coverage>CLASS</rule.element.coverage>

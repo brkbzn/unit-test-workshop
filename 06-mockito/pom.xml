@@ -15,6 +15,7 @@
     <properties>
         <!-- Flags -->
         <jacoco.skip.check>false</jacoco.skip.check>
+        <jacoco.fail.on.error>false</jacoco.fail.on.error>
         <checkstyle.skip.check>false</checkstyle.skip.check>
         <checkstyle.fail.on.error>false</checkstyle.fail.on.error>
         <checkstyle.fail.on.violation>false</checkstyle.fail.on.violation>
